@@ -1,3 +1,4 @@
+import discounts.OverTwentyPoundsDiscount;
 import discounts.TwoForOne;
 import org.junit.Before;
 import org.junit.Test;
@@ -6,16 +7,18 @@ import shop.ShoppingBasket;
 
 import static org.junit.Assert.assertEquals;
 
-public class TwoForOneTest {
+public class OverTwentyPoundsDiscountTest {
 
-    private TwoForOne twoForOne;
-    private ShoppingBasket shoppingBasket;
-    private Item item1;
-    private Item item2;
-    private Item item3;
-    private Item item4;
-    private Item item5;
-    private Item item6;
+    OverTwentyPoundsDiscount overTwentyPoundsDiscount;
+    ShoppingBasket shoppingBasket;
+    TwoForOne twoForOne;
+    Item item1;
+    Item item2;
+    Item item3;
+    Item item4;
+    Item item5;
+    Item item6;
+
 
     @Before
     public void before() {
@@ -33,17 +36,11 @@ public class TwoForOneTest {
         shoppingBasket.addMoreThanOneOfAnItem(item5, 4);
         shoppingBasket.addItem(item6);
         twoForOne = new TwoForOne();
-
+        overTwentyPoundsDiscount = new OverTwentyPoundsDiscount(twoForOne);
     }
-
-//    @Test
-//    public void canAccessShoppingBasketItems() {
-//        assertEquals(shoppingBasket.getItems(), twoForOne.getItemsInBasket());
-//    }
 
     @Test
     public void canDiscount() {
-        assertEquals(15.30, twoForOne.discount(shoppingBasket), 0.01);
+        assertEquals(15.30, overTwentyPoundsDiscount.discount(shoppingBasket), 0.01);
     }
-
 }

@@ -4,5 +4,5 @@ import shop.ShoppingBasket;
 
 public interface IDiscount {
 
-    double discount();
+    double discount(ShoppingBasket basket);
 }
