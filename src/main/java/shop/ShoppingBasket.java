@@ -1,5 +1,6 @@
 package shop;
 
+
 import java.util.ArrayList;
 
 public class ShoppingBasket {
@@ -23,4 +24,8 @@ public class ShoppingBasket {
     public ArrayList<Item> getItems() {
         return items;
     }
+
+
+
+
 }

@@ -6,29 +6,25 @@ import shop.ShoppingBasket;
 
 import static org.junit.Assert.assertEquals;
 
-public class ShoppingBasketTest {
+public class TwoForOneTest {
 
-    ShoppingBasket shoppingBasket;
-    Item item1;
-    Item item2;
+    private TwoForOne twoForOne;
+    private ShoppingBasket shoppingBasket;
+    private Item item1;
+    private Item item2;
     private Item item3;
     private Item item4;
     private Item item5;
     private Item item6;
-    private Item item7;
-    private Item item8;
 
     @Before
     public void before() {
-        shoppingBasket = new ShoppingBasket();
         item1 = new Item("sausage roll", 2.00, false);
         item2 = new Item("crisps", 1.65, true);
         item3 = new Item("chocolate", 1.50, true);
         item4 = new Item("orange juice", 2.00, false);
         item5 = new Item("cake", 3.40, true);
-        item6 = new Item("crisps", 1.65, true);
-        item7 = new Item("chocolate", 1.50, true);
-        item8 = new Item("cake", 3.40, true);
+        item6 = new Item("cheese", 1.00, false);
         shoppingBasket = new ShoppingBasket();
         shoppingBasket.addItem(item1);
         shoppingBasket.addItem(item2);
@@ -36,16 +32,18 @@ public class ShoppingBasketTest {
         shoppingBasket.addItem(item4);
         shoppingBasket.addItem(item5);
         shoppingBasket.addItem(item6);
-        shoppingBasket.addItem(item7);
-        shoppingBasket.addItem(item8);
+        twoForOne = new TwoForOne(shoppingBasket);
+
     }
-
-
 
     @Test
-    public void canAddItemToBasket() {
-        assertEquals(8, shoppingBasket.countItems());
+    public void CanAccessShoppingBasketItems() {
+        assertEquals(shoppingBasket.getItems(), twoForOne.getItemsInBasket());
     }
 
+    @Test
+    public void CanDiscount() {
+        assertEquals(3, twoForOne.discount(), 0.01);
+    }
 
 }
