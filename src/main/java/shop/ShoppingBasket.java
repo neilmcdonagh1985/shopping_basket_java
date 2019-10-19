@@ -30,6 +30,11 @@ public class ShoppingBasket {
         item.updatePrice(quantity);
     }
 
+    public void removeItem(Item item) {
+        this.items.remove(item);
+
+    }
+
 
 
 

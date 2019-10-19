@@ -28,10 +28,4 @@ public class ItemTest {
         assertEquals(true, item.checkIfOnTwoForOneOffer());
     }
 
-//    @Test
-//    public void canBuyMoreThanOne() {
-//        item.buyMoreThanOne();
-//        assertEquals(7.00, item.getPrice(), 0.01);
-//    }
-
 }
