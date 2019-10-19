@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+import shop.Item;
+import shop.ShoppingBasket;
 
 import static org.junit.Assert.assertEquals;
 

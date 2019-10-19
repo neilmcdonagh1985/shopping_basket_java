@@ -1,3 +1,5 @@
+package shop;
+
 import java.util.ArrayList;
 
 public class ShoppingBasket {
@@ -16,5 +18,9 @@ public class ShoppingBasket {
     public void addItem(Item item) {
         this.items.add(item);
 
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
     }
 }
