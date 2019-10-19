@@ -27,23 +27,23 @@ public class TwoForOneTest {
         item6 = new Item("cheese", 1.00, false);
         shoppingBasket = new ShoppingBasket();
         shoppingBasket.addItem(item1);
-        shoppingBasket.addItem(item2);
-        shoppingBasket.addItem(item3);
+        shoppingBasket.addMoreThanOneOfAnItem(item2, 2);
+        shoppingBasket.addMoreThanOneOfAnItem(item3, 2);
         shoppingBasket.addItem(item4);
-        shoppingBasket.addItem(item5);
+        shoppingBasket.addMoreThanOneOfAnItem(item5, 4);
         shoppingBasket.addItem(item6);
         twoForOne = new TwoForOne(shoppingBasket);
 
     }
 
     @Test
-    public void CanAccessShoppingBasketItems() {
+    public void canAccessShoppingBasketItems() {
         assertEquals(shoppingBasket.getItems(), twoForOne.getItemsInBasket());
     }
 
     @Test
-    public void CanDiscount() {
-        assertEquals(8.45, twoForOne.discount(), 0.01);
+    public void canDiscount() {
+        assertEquals(15.30, twoForOne.discount(), 0.01);
     }
 
 }

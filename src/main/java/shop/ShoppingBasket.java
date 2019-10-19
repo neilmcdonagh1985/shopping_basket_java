@@ -25,6 +25,13 @@ public class ShoppingBasket {
         return items;
     }
 
+    public void addMoreThanOneOfAnItem(Item item, int quantity) {
+        this.items.add(item);
+        item.updatePrice(quantity);
+    }
+
+
+
 
 
 

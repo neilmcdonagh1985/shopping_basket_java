@@ -24,4 +24,8 @@ public class Item {
     public boolean checkIfOnTwoForOneOffer() {
         return this.twoForOneOffer;
     }
+
+    public void updatePrice(int quantity) {
+        this.price = this.price * quantity;
+    }
 }
