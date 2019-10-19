@@ -18,6 +18,8 @@ public class OverTwentyPoundsDiscountTest {
     Item item4;
     Item item5;
     Item item6;
+    Item item7;
+    Item item8;
 
 
     @Before
@@ -40,7 +42,12 @@ public class OverTwentyPoundsDiscountTest {
     }
 
     @Test
-    public void canDiscount() {
-        assertEquals(15.30, overTwentyPoundsDiscount.discount(shoppingBasket), 0.01);
+    public void canApplyDiscountForTotalsOverTwentyPounds() {
+        item7 = new Item("salad box", 3.30, false);
+        item8 = new Item("mini pizza", 2.40, false);
+        shoppingBasket.addItem(item7);
+        shoppingBasket.addItem(item8);
+        overTwentyPoundsDiscount.discount(shoppingBasket);
+        assertEquals(18.90, overTwentyPoundsDiscount.discount(shoppingBasket), 0.01);
     }
 }
