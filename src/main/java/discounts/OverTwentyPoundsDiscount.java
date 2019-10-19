@@ -16,7 +16,7 @@ public class OverTwentyPoundsDiscount implements IDiscount {
     public double discount(ShoppingBasket basket) {
         double currentTotal = this.twoForOne.discount(basket);
         if (currentTotal > 20) {
-            currentTotal = currentTotal - currentTotal / 100 * 10;
+            currentTotal -= currentTotal / 100 * 10;
         }
         return currentTotal;
 

@@ -36,11 +36,6 @@ public class TwoForOneTest {
 
     }
 
-//    @Test
-//    public void canAccessShoppingBasketItems() {
-//        assertEquals(shoppingBasket.getItems(), twoForOne.getItemsInBasket());
-//    }
-
     @Test
     public void canDiscount() {
         assertEquals(15.30, twoForOne.discount(shoppingBasket), 0.01);
