@@ -15,7 +15,7 @@ public class ShoppingBasketTest {
 
     @Before
     public void before() {
-        shoppingBasket = new ShoppingBasket();
+        shoppingBasket = new ShoppingBasket(true);
         item1 = new Item("sausage roll", 2.00, false);
     }
 
@@ -40,7 +40,16 @@ public class ShoppingBasketTest {
         shoppingBasket.addItem(item2);
         shoppingBasket.removeItem(item1);
         assertEquals(1, shoppingBasket.countItems());
+    }
 
+    @Test
+    public void canCheckIfLoyaltycardHolder() {
+        assertEquals(true, shoppingBasket.checkIfLoyaltyCardHolder());
+    }
+
+    @Test public void canExpireLoyaltyCard() {
+        shoppingBasket.expireLoyaltyCard();
+        assertEquals(false, shoppingBasket.checkIfLoyaltyCardHolder());
     }
 
 

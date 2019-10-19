@@ -16,10 +16,10 @@ public class LoyaltyCardDiscount implements IDiscount {
 
     public double discount(ShoppingBasket basket) {
         double currentTotal = this.overTwentyPoundsDiscount.discount(basket);
+        if (basket.checkIfLoyaltyCardHolder()) {
+            currentTotal -= currentTotal / 100 * 2;
+        }
         return currentTotal;
-
-
-
     }
 
 

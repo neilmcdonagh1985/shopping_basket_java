@@ -6,9 +6,11 @@ import java.util.ArrayList;
 public class ShoppingBasket {
 
     private ArrayList<Item> items;
+    private boolean loyaltyCardHolder;
 
-    public ShoppingBasket() {
+    public ShoppingBasket(boolean loyaltyCardHolder) {
         this.items = new ArrayList<Item>();
+        this.loyaltyCardHolder = loyaltyCardHolder;
 
     }
 
@@ -32,7 +34,14 @@ public class ShoppingBasket {
 
     public void removeItem(Item item) {
         this.items.remove(item);
+    }
 
+    public boolean checkIfLoyaltyCardHolder() {
+        return this.loyaltyCardHolder;
+    }
+
+    public void expireLoyaltyCard() {
+        this.loyaltyCardHolder = false;
     }
 
 

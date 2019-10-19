@@ -32,7 +32,7 @@ public class LoyaltyCardDiscountTest {
         item4 = new Item("orange juice", 2.00, false);
         item5 = new Item("cake", 3.40, true);
         item6 = new Item("cheese", 1.00, false);
-        shoppingBasket = new ShoppingBasket();
+        shoppingBasket = new ShoppingBasket(true);
         shoppingBasket.addItem(item1);
         shoppingBasket.addMoreThanOneOfAnItem(item2, 2);
         shoppingBasket.addMoreThanOneOfAnItem(item3, 2);
@@ -46,6 +46,16 @@ public class LoyaltyCardDiscountTest {
 
     @Test
     public void canDiscount() {
+        item7 = new Item("salad box", 3.30, false);
+        item8 = new Item("mini pizza", 2.40, false);
+        shoppingBasket.addItem(item7);
+        shoppingBasket.addItem(item8);
+        assertEquals(18.52, loyaltyCardDiscount.discount(shoppingBasket), 0.01);
+    }
+
+    @Test
+    public void canRefuseDiscountForExpiredLoyaltyCards() {
+        shoppingBasket.expireLoyaltyCard();
         item7 = new Item("salad box", 3.30, false);
         item8 = new Item("mini pizza", 2.40, false);
         shoppingBasket.addItem(item7);

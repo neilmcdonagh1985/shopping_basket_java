@@ -30,7 +30,7 @@ public class OverTwentyPoundsDiscountTest {
         item4 = new Item("orange juice", 2.00, false);
         item5 = new Item("cake", 3.40, true);
         item6 = new Item("cheese", 1.00, false);
-        shoppingBasket = new ShoppingBasket();
+        shoppingBasket = new ShoppingBasket(false);
         shoppingBasket.addItem(item1);
         shoppingBasket.addMoreThanOneOfAnItem(item2, 2);
         shoppingBasket.addMoreThanOneOfAnItem(item3, 2);
@@ -48,5 +48,10 @@ public class OverTwentyPoundsDiscountTest {
         shoppingBasket.addItem(item7);
         shoppingBasket.addItem(item8);
         assertEquals(18.90, overTwentyPoundsDiscount.discount(shoppingBasket), 0.01);
+    }
+
+    @Test
+    public void canNotApplyDiscountForTotalsUnderTwentyPounds() {
+        assertEquals(15.30, overTwentyPoundsDiscount.discount(shoppingBasket), 0.01);
     }
 }
