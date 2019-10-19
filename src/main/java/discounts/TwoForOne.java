@@ -36,29 +36,18 @@ public class TwoForOne {
             }
         }
 
+        double totalOfFullPriceItems = 0;
+        double totalOfDiscountItems = 0;
 
-//        for (int i = 0; i < list1.size(); i++) {
-//            if (list1.get(i).checkIfOnTwoForOneOffer()) {
-//                list2.add(list1.remove(i));
-//            }
-//
-//
-//        }
-        return nonOfferItems.size();
+        for (Item item : nonOfferItems) {
+            totalOfFullPriceItems += item.getPrice();
+        }
 
-//        double total = 0;
-//        for (Item item : list1) {
-//            total += item.getPrice();
-//        }
-//
-//        return total;
-
-//        double totalToBeAdded = 0;
-//        for (int i = 0; i < list2.size(); i = i + 2) {
-//            totalToBeAdded += list2.get(i).getPrice();
-//        }
-//
-//        return total + totalToBeAdded;
+        for (Item item : twoForOneItems) {
+            totalOfDiscountItems += item.getPrice();
+        }
+        totalOfDiscountItems = totalOfDiscountItems / 2;
+        return totalOfFullPriceItems + totalOfDiscountItems;
 
 
     }

@@ -20,7 +20,7 @@ public class TwoForOneTest {
     @Before
     public void before() {
         item1 = new Item("sausage roll", 2.00, false);
-        item2 = new Item("crisps", 1.65, true);
+        item2 = new Item("crisps", 2.00, true);
         item3 = new Item("chocolate", 1.50, true);
         item4 = new Item("orange juice", 2.00, false);
         item5 = new Item("cake", 3.40, true);
@@ -43,7 +43,7 @@ public class TwoForOneTest {
 
     @Test
     public void CanDiscount() {
-        assertEquals(3, twoForOne.discount(), 0.01);
+        assertEquals(8.45, twoForOne.discount(), 0.01);
     }
 
 }
