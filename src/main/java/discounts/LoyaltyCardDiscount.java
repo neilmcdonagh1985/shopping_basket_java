@@ -5,17 +5,15 @@ import shop.ShoppingBasket;
 
 public class LoyaltyCardDiscount implements IDiscount {
 
-    private TwoForOne twoForOne;
-    private OverTwentyPoundsDiscount overTwentyPoundsDiscount;
+    private IDiscount previousDiscount;
 
-    public LoyaltyCardDiscount(TwoForOne twoForOne, OverTwentyPoundsDiscount overTwentyPoundsDiscount) {
-        this.twoForOne = twoForOne;
-        this.overTwentyPoundsDiscount = overTwentyPoundsDiscount;
+    public LoyaltyCardDiscount(IDiscount overTwentyPoundsDiscount) {
+        this.previousDiscount = overTwentyPoundsDiscount;
 
     }
 
     public double discount(ShoppingBasket basket) {
-        double currentTotal = this.overTwentyPoundsDiscount.discount(basket);
+        double currentTotal = this.previousDiscount.discount(basket);
         if (basket.checkIfLoyaltyCardHolder()) {
             currentTotal -= currentTotal / 100 * 2;
         }

@@ -41,7 +41,7 @@ public class LoyaltyCardDiscountTest {
         shoppingBasket.addItem(item6);
         twoForOne = new TwoForOne();
         overTwentyPoundsDiscount = new OverTwentyPoundsDiscount(twoForOne);
-        loyaltyCardDiscount = new LoyaltyCardDiscount(twoForOne, overTwentyPoundsDiscount);
+        loyaltyCardDiscount = new LoyaltyCardDiscount(overTwentyPoundsDiscount);
     }
 
     @Test
